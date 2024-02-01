@@ -1,11 +1,13 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import "./Navbar.css"
 
 const Navbar = () => {
   return (
     <div className='navbar_home'> 
-      <h1>Navbar</h1>
+      <div>
+        <Link to={"/"}><p>Login</p></Link>
+      </div>
       <Outlet />
     </div>
   )

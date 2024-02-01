@@ -1,9 +1,14 @@
 import React from 'react'
+import CreateRoomNumbers from './CreateRoomNumbers'
+import HostlerDetails from './HostlerDetails'
+import Hostlers from './Hostlers'
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <CreateRoomNumbers />
+      <HostlerDetails />
+      <Hostlers />
     </div>
   )
 }

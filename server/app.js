@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const user = require("./routes/user")
+const room = require("./routes/room")
 const cors = require("cors")
 
 const dbURI = 'mongodb+srv://raviraja2000:raviraja2000@cluster0.eabcdxj.mongodb.net/hostel';
@@ -15,6 +16,7 @@ app.use((req,res,next)=>{
   next()
 })
 app.use(user)
+app.use(room)
 app.use(cors())
 
 const dbFunction = async() => {

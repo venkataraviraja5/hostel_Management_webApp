@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './client/Navbar';
 import Login from './client/Login';
 import SignUp from './client/SignUp';
+import Home from './client/Home';
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
         {
           path:"/signup",
           element:<SignUp />
+        },
+        {
+          path:"/home/:id",
+          element:<Home />
         }
       ]
     }
