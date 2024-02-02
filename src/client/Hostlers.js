@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import "./Hostlers.css"
 import HostlerCard from './HostlerCard'
+import { Button } from 'react-bootstrap'
+import HostlerDetails from './HostlerDetails'
 
 const Hostlers = () => {
 
@@ -9,6 +11,15 @@ const Hostlers = () => {
 
     const[hostlers,setHostlers] = useState([])
     const [fetched, setFetched] = useState(false);
+    const[flashMessage,setFlashMessage] = useState("")
+    const navigate = useNavigate()
+
+    const flashMessages = (message) => {
+        setFlashMessage(message)
+        setTimeout(() => {
+            setFlashMessage('')
+        },2000)
+    }
 
     const getHostlers = async() => {
         const fetchUrl = await fetch("http://localhost:8080/gethostlers/" + id)
@@ -36,10 +47,12 @@ const Hostlers = () => {
         })
 
         if(fetchUrl.ok){
+            flashMessages("deleted")
             const result = await fetchUrl.json()
             console.log(result)
         }
       }
+
 
     useEffect(() => {
         getHostlers()
@@ -47,21 +60,17 @@ const Hostlers = () => {
 
   return (
     <div>
-      <div className='head'>
-        <p>Name</p>
-        <p>Room No</p>
-        <p>Amount</p>
-        <p>Date</p>
-      </div>
+      <p>{flashMessage}</p>
       <div>
         {
             hostlers.length > 0 ?
-            <div>
+            <div  className='details-card-page'>
                 {
                     hostlers.map((value,index) => (
                         <div key={value.id}>
                           <HostlerCard  room={value} key={index}/>
-                          <button onClick={() => deleteBtn(value)}>Delete</button>
+                          <Button variant="danger" onClick={() => deleteBtn(value)}>Delete</Button>
+                          <Button variant="primary" >Edit</Button>{' '}
                         </div>
                     ))
                 }

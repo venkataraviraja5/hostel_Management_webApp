@@ -4,6 +4,7 @@ import Navbar from './client/Navbar';
 import Login from './client/Login';
 import SignUp from './client/SignUp';
 import Home from './client/Home';
+import HostlerDetails from './client/HostlerDetails';
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -22,6 +23,10 @@ function App() {
         {
           path:"/home/:id",
           element:<Home />
+        },
+        {
+          path:"/edit",
+          element:<HostlerDetails />
         }
       ]
     }

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import "./Hostlers.css"
+import { Button } from 'react-bootstrap'
 
 const HostlerDetails = () => {
 
@@ -30,17 +32,25 @@ const HostlerDetails = () => {
         }
     }
   return (
-    <div>
+    <div className='hostlers-details'>
       <input type='text' placeholder='Enter Hostler Name'
+        className='textBox'
+        name={hostlerName}
         onChange={(e) => setHostlername(e.target.value)}
       />
       <input type='text' placeholder='Enter Room Number' 
+        className='textBox'
+        name={roomNo}
         onChange={(e) => setRoomNo(e.target.value)}
       />
       <input type='text' placeholder='Amount' 
+       className='textBox'
+       name={amount}
        onChange={(e) => setAmount(e.target.value)}
       />
-      <button onClick={joinRoom}>Submit</button>
+     
+      <Button variant="success" onClick={joinRoom}>Enter</Button>{' '}
+      
     </div>
   )
 }

@@ -1,11 +1,47 @@
-.head{
-    height: 40px;
-   
-    background-color: lightblue;
+.header-names{
     display: flex;
     justify-content: space-between;
     padding: 5px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 5px;
+    border: 0.1px solid black;
 }
+
+.hostlers-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.details-card-page{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.details-card{
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
+    background-color: lightcoral;
+}
+
+.textBox{
+    height: 30px;
+    width: 300px;
+}
+.create-room{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
 

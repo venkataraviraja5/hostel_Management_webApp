@@ -20,7 +20,7 @@ exports.createRoom = async(req,res,result) => {
     res.status(201).json({result:"room created succesfull"})
    }
    else{
-    res.json({result:"Room Number Already Exists"})
+    res.json({result:false})
    }
 
 }
@@ -35,10 +35,10 @@ exports.joinRoom = async(req,res,next) => {
 
     const user = await Room.findOne({userId : userId,roomNo:roomNo})
     const userhostlers = await userIdHostlers.findOne({userId : userId})
-    //console.log(user.hostlers)
+   // console.log(userhostlers)
 
     if(user){
-        if(userhostlers.length === 0){
+        if(userhostlers === null){
             const newHostler = new userIdHostlers({
                 userId:userId,
                 hostlers:[{id:id,name:name,roomNo:roomNo,amount:amount,date:date}]
@@ -60,7 +60,7 @@ exports.joinRoom = async(req,res,next) => {
         }
     }
     else{
-        res.json({result:"roomNo Doesnt exits"})
+        res.json({result:false})
     }
 
 }

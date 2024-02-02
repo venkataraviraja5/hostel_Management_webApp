@@ -58,21 +58,23 @@ exports.delete = async(req,res,next) => {
     const userId = req.body.userId
     const roomNo = req.body.roomNo
     const uuidNo = req.body.uuidNo
-    //console.log(userId,roomNo,indexNo)
+    //console.log(uuidNo)
 
     const userHostlers = await userIdHostlers.findOne({userId : userId})
     const roomHostlersData = await roomHostlers.findOne({userId:userId,roomNo:roomNo})
     
     if(roomHostlersData){
         if(userHostlers){
-            //console.log(userHostlers.hostlers)
+            console.log(userHostlers)
             const filteredItems = userHostlers.hostlers.filter((value) => {
-                value.id != uuidNo
+                //console.log(value.id !== uuidNo)
+                value.id !== uuidNo
             })
+            //console.log(filteredItems)
             userHostlers.hostlers = filteredItems
 
             const roomHostlersFilter = roomHostlersData.hostlers.filter((value) => {
-                value.id != uuidNo
+                value.id !== uuidNo
             })
             roomHostlersData.hostlers = roomHostlersFilter
 
@@ -81,4 +83,13 @@ exports.delete = async(req,res,next) => {
             res.status(201).json({result:"deleted succesfull"})
         }
     }
+}
+
+exports.edit = async(req,res,next) => {
+    const userId = req.body.userId
+    const roomNo = req.body.roomNo
+    const uuidNo = req.body.uuidNo
+    console.log(userId)
+    
+
 }

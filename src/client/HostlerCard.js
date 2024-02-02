@@ -9,13 +9,14 @@ const year = dateObject.getFullYear();
 const month = dateObject.getMonth() + 1;
 const day = dateObject.getDate(); 
 
+
   return (
-    <div>
-      <div className='head'>
-      <p>{room.name}</p>
-      <p>{room.roomNo}</p>
-      <p>{room.amount}</p>
-      <p>{day}/{month}/{year}</p>
+    <div className='details-card-page'>
+      <div className='details-card'>
+      <p>Name:{room.name}</p>
+      <p>RoomNo:{room.roomNo}</p>
+      <p>Amount:{room.amount}</p>
+      <p>Date:{day}/{month}/{year}</p>
       
       </div>
       
